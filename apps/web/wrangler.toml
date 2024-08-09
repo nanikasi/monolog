@@ -80,8 +80,8 @@ SERVER_URL = "http://127.0.0.1:8787"
 
 ######## PRODUCTION environment config ########
 
-# [env.production.vars]
-# API_KEY = "abc123"
+[env.production.vars]
+SERVER_URL = "https://monolog-server.nanikasi1024.workers.dev/"
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
