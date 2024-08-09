@@ -6,7 +6,7 @@ export const meta: MetaFunction = () => {
     { title: "Monolog" },
     {
       name: "description",
-      content: "Welcome to monolog!",
+      content: "Welcome to monolog",
     },
   ];
 };
