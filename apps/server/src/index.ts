@@ -3,7 +3,9 @@ import { Hono } from "hono";
 const app = new Hono();
 
 app.get("/", (c) => {
-  return c.json({ res: "Hello Hono! This text is sent by monolog-server" });
+  return c.json({
+    res: "こんにちは！このページは１日10万リクエストまで耐えるよ！",
+  });
 });
 
 export default app;
