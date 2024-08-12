@@ -13,8 +13,8 @@ export const meta: MetaFunction = () => {
 
 export async function loader({ context }: LoaderFunctionArgs) {
   const response = await fetch(context.cloudflare.env.SERVER_URL);
-  const data = await response.json<{ res: string }>();
-  return data.res;
+  const data = await response.text();
+  return data;
 }
 
 export default function Index() {
