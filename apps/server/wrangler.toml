@@ -3,8 +3,24 @@ compatibility_date = "2024-07-25"
 
 workers_dev = true
 
-# [vars]
-# MY_VAR = "my-variable"
+[env.dev.vars]
+# The secret key used for signing the session JWT.
+# It is used to verify the JWT in the cookie and prevent tampering.
+#  (Must be at least 32 characters long)
+# OIDC_AUTH_SECRET is in dev vars
+
+# The issuer URL of the OpenID Connect (OIDC) discovery. 
+# This URL is used to retrieve the OIDC provider's configuration.
+OIDC_ISSUER = "https://accounts.google.com"
+
+# The OAuth 2.0 client ID assigned to your application.
+# This ID is used to identify your application to the OIDC provider.
+# OIDC_CLIENT_ID is in dev.vars
+
+# OIDC_CLIENT_SECRET is in dev.vars
+
+OIDC_REDIRECT_URI = "http://localhost:8787/callback"
+
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"

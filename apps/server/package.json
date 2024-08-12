@@ -1,10 +1,11 @@
 {
   "name": "server",
   "scripts": {
-    "dev": "wrangler dev src/index.ts",
+    "dev": "wrangler dev src/index.ts --env dev",
     "deploy": "wrangler deploy --minify src/index.ts --name monolog-server"
   },
   "dependencies": {
+    "@hono/oidc-auth": "^1.0.1",
     "hono": "^4.5.3"
   },
   "devDependencies": {
