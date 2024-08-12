@@ -1,4 +1,4 @@
-name: lint and format
+name: lint-and-format
 
 on:
   pull_request:
@@ -6,8 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
-    name: check lint format
+  lint-and-format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
