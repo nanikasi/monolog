@@ -4,30 +4,33 @@ import { ID } from "../value-object/id";
 export class User implements Entity<ID> {
   private _id: ID;
   private _name: string;
-  private _email: Email;
+  private _bio: string;
 
-  constructor({ id, name, email }: { id: ID; name: string; email: Email }) {
+  constructor({ id, name, bio }: { id: ID; name: string; bio: string }) {
     if (!id) {
       throw new Error("ID is required");
     }
     if (!name) {
       throw new Error("Name is required");
     }
-    if (!email) {
-      throw new Error("Email is required");
+    if (!bio) {
+      throw new Error("Bio is required");
     }
 
     if (name.length > 20) {
       throw new Error("Name's length must be 20 or less");
     }
+    if (bio.length > 80) {
+      throw new Error("Bio's length must be 80 or less");
+    }
 
     this._id = id;
     this._name = name;
-    this._email = email;
+    this._bio = bio;
   }
 
-  public static new({ name, email }: { name: string; email: Email }) {
-    return new User({ id: ID.generate(), name, email });
+  public static new({ name, bio }: { name: string; bio: string }) {
+    return new User({ id: ID.generate(), name, bio });
   }
 
   identity(): ID {
@@ -41,8 +44,8 @@ export class User implements Entity<ID> {
     return this._name;
   }
 
-  get email(): Email {
-    return this._email;
+  get bio(): string {
+    return this._bio;
   }
 
   public changeName(name: string): User {
@@ -52,15 +55,22 @@ export class User implements Entity<ID> {
     if (name.length > 20) {
       throw new Error("Name's length must be 20 or less");
     }
+
     this._name = name;
+
     return this;
   }
 
-  public changeEmail(email: Email): User {
-    if (!email) {
-      throw new Error("Email is required");
+  public changeBio(bio: string): User {
+    if (!bio) {
+      throw new Error("Bio is required");
     }
-    this._email = email;
+    if (bio.length > 80) {
+      throw new Error("Bio's length must be 80 or less");
+    }
+
+    this._bio = bio;
+
     return this;
   }
 }
