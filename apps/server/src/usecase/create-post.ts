@@ -5,8 +5,12 @@ import { ID } from "../domain/value-object/id";
 import { UsecaseError } from "./usecase-error";
 
 type CreatePostInput = {
-  userId: string;
+  authorId: string;
   content: string;
+};
+
+type CreatePostOutput = {
+  id: string;
 };
 
 export async function createPost(
@@ -15,16 +19,19 @@ export async function createPost(
     postRepository: PostRepository;
   },
   input: CreatePostInput,
-): Promise<void> {
-  const author = await repositories.userRepository.findBy(new ID(input.userId));
+): Promise<CreatePostOutput> {
+  const author = await repositories.userRepository.findBy(
+    new ID(input.authorId),
+  );
   if (!author) {
     throw new UsecaseError(400, "Author Not Found");
   }
 
   const newPost = Post.new({
     content: input.content,
-    author: author,
+    authorId: new ID(input.authorId),
   });
+  repositories.postRepository.save(newPost);
 
-  return repositories.postRepository.save(newPost);
+  return { id: newPost.identity().value() };
 }
