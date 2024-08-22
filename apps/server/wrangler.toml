@@ -11,6 +11,7 @@ OIDC_REDIRECT_URI = "http://localhost:8787/api/auth/callback"
 [env.production.vars]
 WEB_URL = "monolog-9gu.pages.dev"
 OIDC_REDIRECT_URI = "https://monolog-server.nanikasi1024.workers.dev/api/auth/callback"
+
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
