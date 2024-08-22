@@ -1,4 +1,4 @@
-name = "server"
+name = "monolog-server"
 compatibility_date = "2024-07-25"
 
 workers_dev = true
@@ -9,7 +9,7 @@ WEB_URL = "http://localhost:5173"
 OIDC_REDIRECT_URI = "http://localhost:8787/api/auth/callback"
 
 [env.production.vars]
-WEB_URL = "monolog-9gu.pages.dev"
+WEB_URL = "https://monolog-9gu.pages.dev"
 OIDC_REDIRECT_URI = "https://monolog-server.nanikasi1024.workers.dev/api/auth/callback"
 
 # [[kv_namespaces]]

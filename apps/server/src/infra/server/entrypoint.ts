@@ -18,6 +18,7 @@ import userPostRoute from "./route/user.post";
 export type Bindings = {
   DB: D1Database;
   WEB_URL: string;
+  OIDC_AUTH_SECRET: string;
 };
 
 export type VariablesType = {
@@ -70,6 +71,10 @@ app
 app.get("/", async (c) => {
   const auth = await getAuth(c);
   return c.text(auth?.sub ?? "hello");
+});
+
+app.get("/get", async (c) => {
+  return c.json({ weburl: c.env.WEB_URL, key: c.env.OIDC_AUTH_SECRET });
 });
 
 export default app;
