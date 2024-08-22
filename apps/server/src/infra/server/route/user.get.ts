@@ -1,6 +1,6 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { showUser } from "../../../usecase/show-user";
-import type { DIContainer } from "../d1-container";
+import type { DIContainer } from "../di-container";
 import type { Bindings, DependencyTypes } from "../entrypoint";
 import { signinRequired } from "../middleware/auth-middleware";
 
