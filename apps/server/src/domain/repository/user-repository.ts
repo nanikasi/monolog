@@ -3,7 +3,8 @@ import type { ID } from "../value-object/id";
 
 export interface UserRepository {
   findBy(id: ID): Promise<User | null>;
-  findBy(email: Email): Promise<User | null>;
+  findByOauth(oauthID: ID): Promise<User | null>;
+
   save(user: User): Promise<void>;
   delete(user: User): Promise<void>;
 }

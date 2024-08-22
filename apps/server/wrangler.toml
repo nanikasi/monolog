@@ -3,8 +3,12 @@ compatibility_date = "2024-07-25"
 
 workers_dev = true
 
-# [vars]
-# MY_VAR = "my-variable"
+[vars]
+AUTH_ENDPOINT = "https://accounts.google.com/o/oauth2/v2/auth"
+TOKEN_ENDPOINT = "https://www.googleapis.com/oauth2/v4/token"
+USERINFO_ENDPOINT = "https://www.googleapis.com/oauth2/v3/userinfo"
+JWKS_URI = "https://www.googleapis.com/oauth2/v3/certs"
+REDIRECT_URI = "http://localhost:8787/api/auth/callback"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
