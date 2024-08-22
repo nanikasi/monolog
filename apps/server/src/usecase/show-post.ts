@@ -9,7 +9,8 @@ type ShowPostInput = {
 type ShowPostOutput = {
   id: string;
   content: string;
-  createdAt: Date;
+  authorId: string;
+  createdAt: string;
 };
 
 export async function showPost(
@@ -26,7 +27,8 @@ export async function showPost(
   const showPostOutput = {
     id: post.identity().value(),
     content: post.content,
-    createdAt: post.createdAt,
+    authorId: post.authorId.value(),
+    createdAt: post.createdAt.toISOString(),
   };
 
   return showPostOutput;
