@@ -25,22 +25,16 @@ export const meta: MetaFunction = () => {
 
 export async function action({ context, request }: ActionFunctionArgs) {
   console.log("action was called");
-  const response = await fetch(
-    `${context.cloudflare.env.SERVER_URL}/api/auth`,
-    {
-      method: "GET",
-      redirect: "manual",
-      headers: request.headers,
-    },
-  );
+  const response = await fetch(`${context.cloudflare.env.SERVER_URL}/hello`, {
+    method: "GET",
+    // redirect: "manual",
+    headers: request.headers,
+  });
+  const data = await response.text();
 
   console.log("getch succeed");
 
-  return new Response(response.body, {
-    status: response.status,
-    statusText: response.statusText,
-    headers: response.headers,
-  });
+  return data;
 }
 
 export default function Index() {
