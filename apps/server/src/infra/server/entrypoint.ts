@@ -59,13 +59,13 @@ app
     return next();
   })
   .get("/ui", swaggerUI({ url: "schema" }))
+  .route("/", authGetRoute)
+  .route("/", authCallbackGetRoute)
+  .route("/", authLogoutGet)
   .route("/", userPostRoute)
   .route("/", userGetRoute)
   .route("/", postPostRoute)
-  .route("/", postGetRoute)
-  .route("/", authGetRoute)
-  .route("/", authCallbackGetRoute)
-  .route("/", authLogoutGet);
+  .route("/", postGetRoute);
 
 app.get("/", async (c) => {
   const auth = await getAuth(c);
