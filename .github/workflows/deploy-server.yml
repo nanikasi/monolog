@@ -32,15 +32,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       
-      - uses: cloudflare/wrangler-action@2.0.0
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          secrets: |
-            OIDC_AUTH_SECRET
-            OIDC_CLIENT_ID
-            OIDC_CLIENT_SECRET
-        env:
-          OIDC_AUTH_SECRET: ${{ secrets.OIDC_AUTH_SECRET }}
-          OIDC_CLIENT_ID: ${{ secrets.OIDC_CLIENT_ID }}
-          OIDC_CLIENT_SECRET: ${{ secrets.OIDC_CLIENT_SECRET }}
+      - name: Add secrets
+        run: pnpm dlx wrangler kv key put OIDC_AUTH_SECRET ${{ secrets.OIDC_AUTH_SECRET }} | 
+             pnpm dlx wrangler kv key put OIDC_CLIENT_ID ${{ secrets.OIDC_CLIENT_ID }} | 
+             pnpm dlx wrangler kv key put OIDC_CLIENT_SECRET ${{ secrets.OIDC_CLIENT_SECRET }}
