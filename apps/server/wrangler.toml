@@ -7,6 +7,7 @@ workers_dev = true
 OIDC_ISSUER = "https://accounts.google.com"
 WEB_URL = "http://localhost:5173"
 OIDC_REDIRECT_URI = "http://localhost:8787/api/auth/callback"
+account_id = ""
 
 [env.production.vars]
 WEB_URL = "monolog-9gu.pages.dev"
