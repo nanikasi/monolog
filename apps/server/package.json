@@ -2,7 +2,7 @@
   "name": "server",
   "scripts": {
     "dev": "wrangler dev src/infra/server/entrypoint.ts",
-    "deploy": "wrangler deploy --minify src/infra/server/entrypoint.ts --name monolog-server --env prd",
+    "deploy": "wrangler deploy --minify src/infra/server/entrypoint.ts --name monolog-server --env production",
     "lint": "biome lint ./src",
     "format": "biome format ./src",
     "pre-push": "pnpm run lint && pnpm run format && pnpm run test",
