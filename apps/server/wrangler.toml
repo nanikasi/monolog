@@ -10,6 +10,8 @@ USERINFO_ENDPOINT = "https://www.googleapis.com/oauth2/v3/userinfo"
 JWKS_URI = "https://www.googleapis.com/oauth2/v3/certs"
 REDIRECT_URI = "http://localhost:8787/api/auth/callback"
 
+WEB_URL = "http://localhost:5173"
+
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"

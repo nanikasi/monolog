@@ -20,7 +20,7 @@ const route = new OpenAPIHono<{
 route.openapi(schema, async (c) => {
   const response = await processOAuthCallback(c);
   const headers = new Headers(response.headers);
-  headers.set("location", "http://localhost:5173");
+  headers.set("location", c.env.WEB_URL);
 
   const newResponse = new Response(response.body, {
     status: response.status,

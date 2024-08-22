@@ -17,6 +17,7 @@ import userPostRoute from "./route/user.post";
 
 export type Bindings = {
   DB: D1Database;
+  WEB_URL: string;
 };
 
 export type VariablesType = {
@@ -37,15 +38,16 @@ const app = new OpenAPIHono<{
   Variables: VariablesType;
 }>();
 
-app.use(
-  "*",
-  cors({
-    origin: "http://localhost:5173",
+app.use("*", async (c, next) => {
+  const corsMiddleware = cors({
+    origin: c.env.WEB_URL,
     allowMethods: ["GET", "POST", "PUT", "DELETE"],
     allowHeaders: ["Content-Type"],
     credentials: true,
-  }),
-);
+  });
+
+  await corsMiddleware(c, next);
+});
 
 app
   .doc("/schema", {
