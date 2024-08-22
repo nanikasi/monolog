@@ -24,6 +24,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function action({ context, request }: ActionFunctionArgs) {
+  console.log("action was called");
   const response = await fetch(
     `${context.cloudflare.env.SERVER_URL}/api/auth`,
     {
@@ -32,6 +33,8 @@ export async function action({ context, request }: ActionFunctionArgs) {
       headers: request.headers,
     },
   );
+
+  console.log("getch succeed");
 
   return new Response(response.body, {
     status: response.status,
