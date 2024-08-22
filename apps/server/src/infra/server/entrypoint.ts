@@ -69,7 +69,7 @@ app
 
 app.get("/", async (c) => {
   const auth = await getAuth(c);
-  return c.text(auth?.sub ?? "");
+  return c.text(auth?.sub ?? "hello");
 });
 
 export default app;
