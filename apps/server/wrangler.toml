@@ -8,7 +8,7 @@ OIDC_ISSUER = "https://accounts.google.com"
 WEB_URL = "http://localhost:5173"
 OIDC_REDIRECT_URI = "http://localhost:8787/api/auth/callback"
 
-[env.production.vars]
+[env.prd.vars]
 WEB_URL = "https://monolog-9gu.pages.dev"
 OIDC_REDIRECT_URI = "https://monolog-server.nanikasi1024.workers.dev/api/auth/callback"
 
