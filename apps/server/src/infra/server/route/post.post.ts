@@ -1,7 +1,7 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import { createPost } from "../../../usecase/create-post";
 import type { Bindings, VariablesType } from "../entrypoint";
-import { signinRequired } from "../middleware/auth-middleware";
+import { authMiddleware } from "../middleware/auth-middleware";
 
 const schema = createRoute({
   method: "post",
@@ -18,7 +18,7 @@ const schema = createRoute({
       }),
     }),
   },
-  middleware: [signinRequired],
+  middleware: [authMiddleware],
   responses: {
     201: {
       content: {

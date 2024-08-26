@@ -2,7 +2,7 @@ import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
 import type { Bindings } from "hono/types";
 import { showPost } from "../../../usecase/show-post";
 import type { VariablesType } from "../entrypoint";
-import { signinRequired } from "../middleware/auth-middleware";
+import { authMiddleware } from "../middleware/auth-middleware";
 
 const schema = createRoute({
   method: "get",
@@ -15,7 +15,7 @@ const schema = createRoute({
       }),
     }),
   },
-  middleware: [signinRequired],
+  middleware: [authMiddleware],
   responses: {
     201: {
       content: {

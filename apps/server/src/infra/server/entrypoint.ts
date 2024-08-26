@@ -7,9 +7,6 @@ import type { UserRepository } from "../../domain/repository/user-repository";
 import { MemoryPostRepositoryImpl } from "../repository/memory/post-repository-impl";
 import { MemoryUserRepositoryImpl } from "../repository/memory/user-repository-impl";
 import { DIContainer } from "./di-container";
-import authCallbackGetRoute from "./route/auth.callback.get";
-import authGetRoute from "./route/auth.get";
-import authLogoutGet from "./route/auth.logout.get";
 import postGetRoute from "./route/post.get";
 import postPostRoute from "./route/post.post";
 import userGetRoute from "./route/user.get";
@@ -60,9 +57,6 @@ app
     return next();
   })
   .get("/ui", swaggerUI({ url: "schema" }))
-  .route("/", authGetRoute)
-  .route("/", authCallbackGetRoute)
-  .route("/", authLogoutGet)
   .route("/", userPostRoute)
   .route("/", userGetRoute)
   .route("/", postPostRoute)
