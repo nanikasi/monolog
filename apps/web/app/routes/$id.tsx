@@ -19,15 +19,15 @@ export async function loader({ params, request, context }: LoaderFunctionArgs) {
   if (!user) {
     return redirect("/");
   }
-  const userResponse = await fetch(
-    `${context.cloudflare.env.SERVER_URL}/api/user/${params.id}`,
-    {
-      method: "2GET",
-      headers: {
-        Authorization: `Bearer ${user.idToken}`,
-      },
-    },
-  );
+  // const userResponse = await fetch(
+  //   `${context.cloudflare.env.SERVER_URL}/api/user/${params.id}`,
+  //   {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: `Bearer ${user.idToken}`,
+  //     },
+  //   },
+  // );
 
   return json({ user: "hi" });
 }
