@@ -82,8 +82,8 @@ CLIENT_URL = "http://localhost:5173"
 ######## PRODUCTION environment config ########
 
 [env.production.vars]
-SERVER_URL = "https://monolog-server.nanikasi1024.workers.dev/"
-CLIENT_URL = "https://monolog-9gu.pages.dev/"
+SERVER_URL = "https://monolog-server.nanikasi1024.workers.dev"
+CLIENT_URL = "https://monolog-9gu.pages.dev"
 
 # [[env.production.kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
