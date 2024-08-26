@@ -1,6 +1,4 @@
 import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/cloudflare";
-import "dotenv/config";
-
 import { json, redirect, useLoaderData } from "@remix-run/react";
 import { authenticator } from "~/service/auth.server";
 import { getEnv } from "~/service/contextEnv";
