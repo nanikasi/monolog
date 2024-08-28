@@ -11,6 +11,7 @@ import postGetRoute from "./route/post.get";
 import postPostRoute from "./route/post.post";
 import userGetRoute from "./route/user.get";
 import userPostRoute from "./route/user.post";
+import userPostGetRoute from "./route/user.post.get";
 
 export type Bindings = {
   DB: D1Database;
@@ -60,7 +61,8 @@ app
   .route("/", userPostRoute)
   .route("/", userGetRoute)
   .route("/", postPostRoute)
-  .route("/", postGetRoute);
+  .route("/", postGetRoute)
+  .route("/", userPostGetRoute);
 
 app.get("/", async (c) => {
   const auth = await getAuth(c);
