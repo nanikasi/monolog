@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import type { Entity } from "../../util/utility-type";
 import { ID } from "../value-object/id";
 
@@ -5,14 +6,14 @@ export class Post implements Entity<ID> {
   private _id: ID;
   private _authorId: ID;
   private _content: string;
-  private _createdAt: Date;
+  private _createdAt: dayjs.Dayjs;
 
   constructor({
     id,
     content,
     authorId,
     createdAt,
-  }: { id: ID; content: string; authorId: ID; createdAt: Date }) {
+  }: { id: ID; content: string; authorId: ID; createdAt: dayjs.Dayjs }) {
     this._id = id;
     this._content = content;
     this._authorId = authorId;
@@ -40,7 +41,7 @@ export class Post implements Entity<ID> {
       id: ID.generate(),
       content: content,
       authorId: authorId,
-      createdAt: new Date(),
+      createdAt: new dayjs.Dayjs(),
     });
   }
 
@@ -50,7 +51,7 @@ export class Post implements Entity<ID> {
   get authorId(): ID {
     return this._authorId;
   }
-  get createdAt(): Date {
+  get createdAt(): dayjs.Dayjs {
     return this._createdAt;
   }
 }
