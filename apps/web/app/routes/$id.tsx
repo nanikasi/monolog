@@ -12,6 +12,8 @@ import {
   Stack,
   Text,
 } from "@yamada-ui/react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import { useState } from "react";
 import { authenticator } from "~/service/auth.server";
 import { getEnv } from "~/service/contextEnv";
@@ -61,6 +63,7 @@ export type Post = {
 export default function Index() {
   const { initialPosts, user } = useLoaderData<typeof loader>();
   const [posts, setPosts] = useState<Post[]>(initialPosts);
+  dayjs.extend(relativeTime);
 
   return (
     <Stack direction="column">
@@ -99,7 +102,7 @@ export default function Index() {
         {posts.map((post, index) => (
           <Box key={post.id} mx="lg">
             <Text fontSize="sm" color="gray.300">
-              昨日 06:48
+              {dayjs(post.createdAt).fromNow()}
             </Text>
             <Text fontSize="lg">{post.content}</Text>
           </Box>
